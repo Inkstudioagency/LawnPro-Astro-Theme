@@ -1,0 +1,46 @@
+---
+// Services page grid.
+import DynList from './DynList.astro';
+import LearnMoreButton from '../LearnMoreButton.astro';
+import { serviceUrl, type Service } from '../../lib/content';
+
+interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<DynList count={services.length} listClass="service-collection-list">
+  {services.map((service) => (
+    <div role="listitem" class="w-dyn-item">
+      <div class="service-card-main">
+        <a href={serviceUrl(service.slug)} class="service-card-img-wrap w-inline-block"><img src={service.image} loading="lazy" alt="" class="service-card-img">
+          <div class="demo">#</div>
+        </a>
+        <div class="service-info-wrap">
+          <a href={serviceUrl(service.slug)} class="service-title-wrap w-inline-block">
+            <div class="service-card-title">{service.title}</div>
+            <div class="demo">#</div>
+          </a>
+          <div class="service-summary-wrap">
+            <p>{service.cardSummary}</p>
+          </div>
+          <ul role="list" class="service-card-list">
+            {service.keyPoints.map((point, i) => (
+              <li class={i === 0 ? 'service-key-point-item' : undefined}>
+                <div>{point}</div>
+              </li>
+            ))}
+          </ul>
+          <div class="service-bottom-info">
+            <div class="badge">
+              <div class="badge-text">{service.badge}</div>
+            </div>
+            <LearnMoreButton href={serviceUrl(service.slug)} />
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</DynList>

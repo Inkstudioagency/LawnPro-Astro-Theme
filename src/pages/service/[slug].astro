@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getServices, type Service } from '../../lib/content';
+export async function getStaticPaths() {
+  const services = await getServices();
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props as { service: Service };
+---
+
+<BaseLayout title={service.title} description={service.cardSummary} image={service.image} wfPage="6aba295c0e791c71047d0eee" footerTarget="f0b08db9-b266-0064-54b2-82c4cc05ae22">
+    <div class="main">
+      <section class="section bg-fantasy">
+        <div class="section-gap speacer-3xl">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="w-layout-grid service-hero-grid">
+              <div class="service-hero-left">
+                <div class="service-left-top-info">
+                  <div class="service-left-top">
+                    <div class="hero-badge">
+                      <div class="badge-dot"></div>
+                      <div class="badge-text">{service.badge}</div>
+                    </div>
+                    <h1 class="is-charcoal-black">{service.title}</h1>
+                    <div class="max-width-34">
+                      <p class="service-hero-p">{service.detailsSummary}</p>
+                    </div>
+                  </div>
+                  <div class="service-button-wrapper">
+                    <a data-wf--primary-button--variant="base" data-wf-component-id="fe1f102b-9d85-5da5-5b1c-595a29c97112" data-wf-variant-state="base" href="/book-a-service" class="primary-button w-inline-block">
+                      <div href="#" class="button-text-wrap">
+                        <div class="footer-link-text is-one">Get a Free Quote</div>
+                        <div class="footer-link-text is-two">Get a Free Quote</div>
+                      </div>
+                    </a>
+                    <div class="price-badge">
+                      <div class="semibold">{service.price}</div>
+                      <div class="font-extra-small">/ visit</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="service-bottom-left">
+                  <ul role="list" class="key-feature-list">
+                    {service.keyPoints.map((point) => (
+                      <li class="key-feature-list-item">
+                        <div>{point}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div class="service-right-img-wrap"><img src={service.image} loading="lazy" alt="" class="service-img-main"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="section-header left">
+              <div class="badge">
+                <div class="badge-dot"></div>
+                <div class="badge-text">THE SCOPE</div>
+              </div>
+              <h2 class="align-center left">What&#x27;s included in every visit</h2>
+            </div>
+            <div class="w-layout-grid scope-grid">
+              {service.scopeCards.map((card) => (
+                <div class="scope-card">
+                  <div class="scope-card-info w-richtext">
+                    <figure class="w-richtext-align-normal w-richtext-figure-type-image"><div><img alt="" src={card.icon} loading="lazy"></div></figure>
+                    <h6>{card.title}</h6>
+                    <p>{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section inverse">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="section-header">
+              <div class="badge bg-blur">
+                <div class="badge-dot white"></div>
+                <div class="badge-text inverse">HOW IT WORKS</div>
+              </div>
+              <h2 class="align-center is-white">What&#x27;s included in every visit</h2>
+            </div>
+            <div class="w-layout-grid how-w-grid">
+              <div class="how-w-card">
+                <div class="step-top">
+                  <div class="step-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="step-card-icon">
+                      <g clip-path="url(#clip0_14038_4830)">
+                        <path d="M4 6C4 7.657 7.582 9 12 9C16.418 9 20 7.657 20 6C20 4.343 16.418 3 12 3C7.582 3 4 4.343 4 6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M4 6V12C4 13.43 6.67 14.627 10.243 14.927" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M20 10.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M4 12V18C4 19.546 7.12 20.82 11.128 20.982" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.6282 21.955L17.8002 20.817L19.9722 21.955C20.0367 21.9891 20.1094 22.0046 20.1822 21.9995C20.2549 21.9944 20.3248 21.969 20.3838 21.9262C20.4429 21.8834 20.4887 21.8249 20.5162 21.7573C20.5437 21.6898 20.5517 21.6158 20.5392 21.544L20.1252 19.134L21.8822 17.427C21.9343 17.3761 21.9711 17.3117 21.9885 17.241C22.0058 17.1703 22.003 17.0962 21.9805 17.027C21.9579 16.9578 21.9164 16.8963 21.8607 16.8495C21.805 16.8027 21.7373 16.7723 21.6652 16.762L19.2372 16.41L18.1512 14.217C18.1188 14.1517 18.0687 14.0967 18.0067 14.0583C17.9447 14.0199 17.8732 13.9995 17.8002 13.9995C17.7273 13.9995 17.6558 14.0199 17.5938 14.0583C17.5318 14.0967 17.4817 14.1517 17.4492 14.217L16.3632 16.41L13.9352 16.762C13.863 16.772 13.795 16.8021 13.7391 16.8489C13.6831 16.8957 13.6414 16.9573 13.6188 17.0266C13.5962 17.096 13.5935 17.1703 13.6111 17.2411C13.6287 17.3119 13.6658 17.3763 13.7182 17.427L15.4752 19.134L15.0602 21.545C15.0487 21.6167 15.0573 21.6903 15.0851 21.7574C15.113 21.8245 15.1589 21.8826 15.2178 21.9251C15.2767 21.9676 15.3463 21.9929 15.4188 21.9982C15.4913 22.0035 15.5638 21.9885 15.6282 21.955Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_14038_4830">
+                          <rect width="24" height="24" fill="currentColor"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                  <div class="font-extra-small is-white">Step 1</div>
+                </div>
+                <div class="step-card-bottom">
+                  <div class="font-normal is-white">Assess</div>
+                  <p class="font-regular tertiary">Tell us about your property. We&#x27;ll send a tailored quote within 24 hours — no pressure.</p>
+                </div>
+              </div>
+              <div class="how-w-card">
+                <div class="step-top">
+                  <div class="step-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="step-card-icon">
+                      <g clip-path="url(#clip0_14038_4838)">
+                        <path d="M4.17157 17.8284C3.42143 17.0783 3 16.0609 3 15C3 13.9391 3.42143 12.9217 4.17157 12.1716C4.92172 11.4214 5.93913 11 7 11C8.06087 11 9.07828 11.4214 9.82843 12.1716C10.5786 12.9217 11 13.9391 11 15C11 16.0609 10.5786 17.0783 9.82843 17.8284C9.07828 18.5786 8.06087 19 7 19C5.93913 19 4.92172 18.5786 4.17157 17.8284Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7 15V15.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17 17C17 17.5304 17.2107 18.0391 17.5858 18.4142C17.9609 18.7893 18.4696 19 19 19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17C21 16.4696 20.7893 15.9609 20.4142 15.5858C20.0391 15.2107 19.5304 15 19 15C18.4696 15 17.9609 15.2107 17.5858 15.5858C17.2107 15.9609 17 16.4696 17 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5 17H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M20 15.2V11C20 10.7348 19.8946 10.4804 19.7071 10.2929C19.5196 10.1054 19.2652 10 19 10H13L11 5H5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M18 5H17C16.7348 5 16.4804 5.10536 16.2929 5.29289C16.1054 5.48043 16 5.73478 16 6V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_14038_4838">
+                          <rect width="24" height="24" fill="currentColor"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                  <div class="font-extra-small is-white">Step 2</div>
+                </div>
+                <div class="step-card-bottom">
+                  <div class="font-normal is-white">Treat</div>
+                  <p class="font-regular tertiary">Choose a one-time service or a season-long plan. No contracts, cancel anytime.</p>
+                </div>
+              </div>
+              <div class="how-w-card">
+                <div class="step-top">
+                  <div class="step-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="step-card-icon">
+                      <g clip-path="url(#clip0_14038_4847)">
+                        <path d="M3 5C3 4.73478 3.10536 4.48043 3.29289 4.29289C3.48043 4.10536 3.73478 4 4 4H20C20.2652 4 20.5196 4.10536 20.7071 4.29289C20.8946 4.48043 21 4.73478 21 5V15C21 15.2652 20.8946 15.5196 20.7071 15.7071C20.5196 15.8946 20.2652 16 20 16H4C3.73478 16 3.48043 15.8946 3.29289 15.7071C3.10536 15.5196 3 15.2652 3 15V5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7 20H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9 16V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15 16V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7 10H9L11 13L13 7L14 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_14038_4847">
+                          <rect width="24" height="24" fill="currentColor"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                  <div class="font-extra-small is-white">Step 3</div>
+                </div>
+                <div class="step-card-bottom">
+                  <div class="font-normal is-white">Monitor</div>
+                  <p class="font-regular tertiary">Our quiet, eco-friendly crews arrive on schedule and handle everything for you.</p>
+                </div>
+              </div>
+              <div class="how-w-card">
+                <div class="step-top">
+                  <div class="step-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="step-card-icon">
+                      <g clip-path="url(#clip0_14038_4855)">
+                        <path d="M3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M11 17H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9 14H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10 11H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_14038_4855">
+                          <rect width="24" height="24" fill="currentColor"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                  <div class="font-extra-small is-white">Step 4</div>
+                </div>
+                <div class="step-card-bottom">
+                  <div class="font-normal is-white">Adjust</div>
+                  <p class="font-regular tertiary">Relax in a lush, healthy, pest-free outdoor space — results guaranteed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section bg-desert-storm">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="w-layout-grid effet-grid">
+              <div class="effect-left"><img src="/images/4f34d0e91119a200c798c785a7fb03bff0e88f94-2.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 767px) 49vw, (max-width: 991px) 47vw, 462px" srcset="/images/07210a8f445fb5356cc39a6ece62a13a_4f34d0e91119a200c798c785a7fb03bff0e88f94-2-p-500.webp 500w, /images/4f34d0e91119a200c798c785a7fb03bff0e88f94-2.webp 650w" alt="" class="effat-img"></div>
+              <div class="effect-right">
+                <div class="effect-right-top">
+                  <h2 data-wf-target="[[[&quot;6aba295c0e791c71047d0eee&quot;,&quot;588bad6a-fdf8-4346-f271-82e8f48f47c9&quot;],[]]]">What affects your price</h2>
+                  <p data-wf-target="[[[&quot;6aba295c0e791c71047d0eee&quot;,&quot;ac05318d-6689-bd77-e0ef-3a792b41ef83&quot;],[]]]">No hidden fees, ever. Your quote is clearly calculated based on three straightforward factors, ensuring complete transparency.</p>
+                </div>
+                <div class="effect-right-bottom">
+                  <div class="effect-info-list">
+                    <div class="effect-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="effect-icon">
+                        <g clip-path="url(#clip0_14038_4862)">
+                          <path d="M3 5H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M12 7L14 5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M19 10V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M17 19L19 21L21 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M21 12L19 10L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3 12C3 11.4696 3.21071 10.9609 3.58579 10.5858C3.96086 10.2107 4.46957 10 5 10H12C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12V19C14 19.5304 13.7893 20.0391 13.4142 20.4142C13.0391 20.7893 12.5304 21 12 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14038_4862">
+                            <rect width="24" height="24" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                    <div class="effect-info-block">
+                      <div class="font-normal">Lawn size</div>
+                      <p>Priced by square footage — measured precisely, never guessed.</p>
+                    </div>
+                  </div>
+                  <div class="effect-info-list">
+                    <div class="effect-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="effect-icon">
+                        <g clip-path="url(#clip0_14038_4872)">
+                          <path d="M4 14L10 20H4V14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M20 10L14 4H20V10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M4 4V8L16 20H20V16L8 4H4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14038_4872">
+                            <rect width="24" height="24" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                    <div class="effect-info-block">
+                      <div class="font-normal">Current condition</div>
+                      <p>Lawns that need rescue may start with a few extra early visits.</p>
+                    </div>
+                  </div>
+                  <div class="effect-info-list">
+                    <div class="effect-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="effect-icon">
+                        <g clip-path="url(#clip0_14038_4878)">
+                          <path d="M3 12.0001C3.576 11.3571 4.512 10.9831 5.5 11.0001C6.488 10.9831 7.424 11.3571 8 12.0001C8.576 12.6431 9.512 13.0171 10.5 13.0001C11.488 13.0171 12.424 12.6431 13 12.0001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3 16.0001C3.576 15.3571 4.512 14.9831 5.5 15.0001C6.488 14.9831 7.424 15.3571 8 16.0001C8.576 16.6431 9.512 17.0171 10.5 17.0001C11.488 17.0171 12.424 16.6431 13 16.0001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3 8.00007C3.576 7.35707 4.512 6.98307 5.5 7.00007C6.488 6.98307 7.424 7.35707 8 8.00007C8.576 8.64307 9.512 9.01707 10.5 9.00007C11.488 9.01707 12.424 8.64307 13 8.00007" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M20 7L17 12H21L18 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14038_4878">
+                            <rect width="24" height="24" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                    <div class="effect-info-block">
+                      <div class="font-normal">Visit frequency</div>
+                      <p>Season-long plans cost less per visit than one-time service.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-wf-component-id="f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf" data-wf-variant-state="base" class="section">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="faq-main">
+              <div class="faq-left">
+                <div class="faq-left-sticky">
+                  <div class="badge">
+                    <div class="badge-dot"></div>
+                    <div class="badge-text">FAQ</div>
+                  </div>
+                  <div class="faq-heading-wrap">
+                    <h2 data-wf-target="[[[&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf&quot;,&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5c9&quot;],[&quot;b3a6d7e6-e5bd-1d5d-38b7-5e909ac864c9&quot;]]]">Frequently Asked Questions</h2>
+                  </div>
+                  <div class="faq-p-wrap">
+                    <p data-wf-target="[[[&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf&quot;,&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5cc&quot;],[&quot;b3a6d7e6-e5bd-1d5d-38b7-5e909ac864c9&quot;]]]">Find quick answers to common questions about our lawn care, pest control, scheduling, and service process.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="faq-right">
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">How quickly can I schedule my first service?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">Are your treatments safe for children and pets?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">Do I need a long-term contract?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">What services do you provide?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">How can I request a free quote?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</BaseLayout>

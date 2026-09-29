@@ -1,0 +1,39 @@
+---
+// Home page service slider: each slide holds one service.
+import DynList from './DynList.astro';
+import LearnMoreButton from '../LearnMoreButton.astro';
+import { serviceUrl, type Service } from '../../lib/content';
+
+interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<DynList count={services.length}>
+  {services.map((service) => (
+    <div role="listitem" class="service-collection-item w-dyn-item">
+      <div style={`background-image:url("${service.image}")`} class="service-card">
+        <a href={serviceUrl(service.slug)} class="service-img-wrapper w-inline-block"><img src={service.image} loading="lazy" alt="" class="service-card-image">
+          <div class="demo">#</div>
+        </a>
+        <div class="service-info-card">
+          <a href={serviceUrl(service.slug)} class="service-title-link w-inline-block">
+            <div class="service-title">{service.title}</div>
+            <div class="demo">#</div>
+          </a>
+          <div class="service-card-bottom">
+            <p class="service-card-p">{service.cardSummary}</p>
+            <div class="service-button-wrap">
+              <LearnMoreButton href={serviceUrl(service.slug)} />
+              <div class="badge">
+                <div class="badge-text">{service.badge}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</DynList>

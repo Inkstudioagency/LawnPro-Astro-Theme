@@ -1,0 +1,22 @@
+---
+// Webflow collection-list wrapper: renders the items, or the "No items found."
+// empty state exactly as Webflow does.
+interface Props {
+  count: number;
+  listClass?: string;
+}
+
+const { count, listClass } = Astro.props;
+---
+
+<div class="w-dyn-list">
+  {count > 0 ? (
+    <div role="list" class={listClass ? `${listClass} w-dyn-items` : 'w-dyn-items'}>
+      <slot />
+    </div>
+  ) : (
+    <div class="w-dyn-empty">
+      <div>No items found.</div>
+    </div>
+  )}
+</div>

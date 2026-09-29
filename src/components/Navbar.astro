@@ -1,0 +1,34 @@
+---
+import { isCurrentPath } from '../lib/nav';
+
+const isCurrent = (href: string) => isCurrentPath(href, Astro.url.pathname);
+const withCurrent = (cls: string, href: string) => (isCurrent(href) ? `${cls} w--current` : cls);
+---
+
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+      <div class="container w-container">
+        <div class="nav-main">
+          <a href="/" aria-current={isCurrent("/") ? 'page' : undefined} class={withCurrent("brand-link w-nav-brand", "/")}><img src="/images/Frame-2.png" loading="lazy" alt="Simple green grass blades icon with three main pointed leaves on a transparent background." class="brand-logo"></a>
+          <nav role="navigation" class="nav-menu w-nav-menu">
+            <div class="navlink-wrap">
+              <a href="/" aria-current={isCurrent("/") ? 'page' : undefined} class={withCurrent("navlink w-nav-link", "/")}>Home</a>
+              <a href="/service" aria-current={isCurrent("/service") ? 'page' : undefined} class={withCurrent("navlink w-nav-link", "/service")}>Services</a>
+              <a href="/pricing" aria-current={isCurrent("/pricing") ? 'page' : undefined} class={withCurrent("navlink w-nav-link", "/pricing")}>Pricing</a>
+              <a href="/about-us" aria-current={isCurrent("/about-us") ? 'page' : undefined} class={withCurrent("navlink w-nav-link", "/about-us")}>About</a>
+              <a href="/blog" aria-current={isCurrent("/blog") ? 'page' : undefined} class={withCurrent("navlink w-nav-link", "/blog")}>Blog</a>
+            </div>
+          </nav>
+          <div class="nav-button-wrap">
+            <a data-wf--primary-button--variant="base" data-wf-component-id="fe1f102b-9d85-5da5-5b1c-595a29c97112" data-wf-variant-state="base" href="/book-a-service" aria-current={isCurrent("/book-a-service") ? 'page' : undefined} class={withCurrent("primary-button w-inline-block", "/book-a-service")}>
+              <div href="#" class="button-text-wrap">
+                <div class="footer-link-text is-one">Get a Free Quote</div>
+                <div class="footer-link-text is-two">Get a Free Quote</div>
+              </div>
+            </a>
+          </div>
+          <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+          </div>
+        </div>
+      </div>
+    </div>

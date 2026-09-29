@@ -1,0 +1,46 @@
+---
+// Blog grid and "Similar Article" cards. The blog grid wraps the image link in
+// an extra .post-img-wrap; the related-posts list on the post page does not.
+import DynList from './DynList.astro';
+import LearnMoreButton from '../LearnMoreButton.astro';
+import { formatDate, postUrl, type Post } from '../../lib/content';
+
+interface Props {
+  posts: Post[];
+  wrapImage?: boolean;
+}
+
+const { posts, wrapImage = false } = Astro.props;
+---
+
+<DynList count={posts.length} listClass="blog-collection-list">
+  {posts.map((post) => (
+    <div role="listitem" class="w-dyn-item">
+      <div class="post-card">
+        {wrapImage ? (
+          <div class="post-img-wrap">
+            <a href={postUrl(post.slug)} class="blog-img-wrap w-inline-block"><img src={post.image} loading="lazy" alt="" class="post-card-image"></a>
+          </div>
+        ) : (
+          <a href={postUrl(post.slug)} class="blog-img-wrap w-inline-block"><img src={post.image} loading="lazy" alt="" class="post-card-image"></a>
+        )}
+        <div class="post-card-bottom">
+          <div class="post-date-wrap">
+            <div class="post-date">{post.category}</div>
+            <div class="post-date">{formatDate(post.date)}</div>
+          </div>
+          <div class="post-title-wrap">
+            <a href={postUrl(post.slug)} class="blog-title-wrap w-inline-block">
+              <div class="blog-card-title">{post.title}</div>
+              <div class="demo">#</div>
+            </a>
+            <p class="post-summary">{post.summary}</p>
+          </div>
+          <div class="blog-button-wrap">
+            <LearnMoreButton href={postUrl(post.slug)} />
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</DynList>

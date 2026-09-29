@@ -1,0 +1,31 @@
+---
+// Blog page "Featured Post" cards.
+import DynList from './DynList.astro';
+import { formatDate, postUrl, type Post } from '../../lib/content';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<DynList count={posts.length}>
+  {posts.map((post) => (
+    <div role="listitem" class="w-dyn-item">
+      <a href={postUrl(post.slug)} class="post-card w-inline-block">
+        <div class="post-img-wrap"><img src={post.image} loading="lazy" alt="" class="post-card-img"></div>
+        <div class="post-card-bottom">
+          <div class="post-date-wrap">
+            <div class="post-date">{post.category}</div>
+            <div class="post-date">{formatDate(post.date)}</div>
+          </div>
+          <div class="post-title-wrap">
+            <div class="post-title">{post.title}</div>
+            <p class="post-summary">{post.summary}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  ))}
+</DynList>

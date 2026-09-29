@@ -1,0 +1,172 @@
+---
+import DynList from './cms/DynList.astro';
+import { getPosts, getServices, postUrl, serviceUrl } from '../lib/content';
+import { isCurrentPath } from '../lib/nav';
+
+const isCurrent = (href: string) => isCurrentPath(href, Astro.url.pathname);
+const withCurrent = (cls: string, href: string) => (isCurrent(href) ? `${cls} w--current` : cls);
+
+interface Props {
+  /** Per-page element id Webflow's interactions use for the footer CTA. */
+  target: string;
+}
+
+const { target } = Astro.props;
+const services = await getServices();
+const posts = await getPosts();
+const serviceDetailsHref = services[0] ? serviceUrl(services[0].slug) : '/service';
+const blogDetailsHref = posts[0] ? postUrl(posts[0].slug) : '/blog';
+---
+
+<div data-wf-component-id="d650b238-b1c2-156f-0aef-ddc74077bfbc" data-wf-variant-state="base" class="footer-area">
+      <section class="section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="cta-main">
+            <div class="cta-left">
+              <h2 class="cta-heading">Ready for a yard you&#x27;ll actually enjoy?</h2>
+              <div class="cta-p-wrap">
+                <p data-wf-target={`[[["d650b238-b1c2-156f-0aef-ddc74077bfbc","d650b238-b1c2-156f-0aef-ddc74077bfc4"],["${target}"]]]`} class="font-regular tertiary">Get a free, no-pressure quote in 24 hours. No contracts, no spam just a greener, pest-free home.</p>
+              </div>
+            </div>
+            <div class="cta-right">
+              <a data-wf--primary-button--variant="base" data-wf-component-id="fe1f102b-9d85-5da5-5b1c-595a29c97112" data-wf-variant-state="base" href="/book-a-service" aria-current={isCurrent("/book-a-service") ? 'page' : undefined} class={withCurrent("primary-button w-inline-block", "/book-a-service")}>
+                <div href="#" class="button-text-wrap">
+                  <div class="footer-link-text is-one">Get a Free Quote</div>
+                  <div class="footer-link-text is-two">Get a Free Quote</div>
+                </div>
+              </a>
+              <a data-wf--primary-button--variant="secondary" data-wf-component-id="fe1f102b-9d85-5da5-5b1c-595a29c97112" data-wf-variant-state="01efedc0-ea30-7a2e-67af-8cb17e79a9a3" href="tel:(123)345-6789" class="primary-button w-variant-01efedc0-ea30-7a2e-67af-8cb17e79a9a3 w-inline-block">
+                <div href="#" class="button-text-wrap">
+                  <div class="footer-link-text is-one">Call (123) 345-6789</div>
+                  <div class="footer-link-text is-two">Call (123) 345-6789</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="w-layout-blockcontainer container large w-container">
+          <div class="footer-main">
+            <div class="w-layout-grid footer-grid">
+              <div class="footer-left">
+                <a href="/" aria-current={isCurrent("/") ? 'page' : undefined} class={withCurrent("footer-brand-link w-inline-block", "/")}><img src="/images/Frame-2-1.png" loading="lazy" alt="Pixel food logo with a pixelated character holding a fork." class="brand-logo"></a>
+                <div class="footer-p-wrap">
+                  <p class="font-regular tertiary">LawnPro offers expert lawn care and pest control to keep your outdoor spaces healthy and beautiful year-round.</p>
+                </div>
+                <div class="footer-social-wrap">
+                  <a href="https://www.facebook.com/" target="_blank" class="footer-social-link w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="social-icon">
+                      <path d="M12 1.33301H9.99999C9.11593 1.33301 8.26809 1.6842 7.64297 2.30932C7.01785 2.93444 6.66666 3.78229 6.66666 4.66634V6.66634H4.66666V9.33301H6.66666V14.6663H9.33332V9.33301H11.3333L12 6.66634H9.33332V4.66634C9.33332 4.48953 9.40356 4.31996 9.52859 4.19494C9.65361 4.06991 9.82318 3.99967 9.99999 3.99967H12V1.33301Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a>
+                  <a href="https://twitter.com/" target="_blank" class="footer-social-link w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="social-icon">
+                      <path d="M2 14L7.03226 8.96774M14 2L8.96774 7.03226M7.03226 8.96774L10.6667 14H14L8.96774 7.03226L5.33333 2H2L7.03226 8.96774Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a>
+                  <a href="https://www.instagram.com/" target="_blank" class="footer-social-link w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="social-icon">
+                      <g clip-path="url(#clip0_14152_988)">
+                        <path d="M11.3333 1.33301H4.66665C2.8257 1.33301 1.33331 2.82539 1.33331 4.66634V11.333C1.33331 13.174 2.8257 14.6663 4.66665 14.6663H11.3333C13.1743 14.6663 14.6666 13.174 14.6666 11.333V4.66634C14.6666 2.82539 13.1743 1.33301 11.3333 1.33301Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.6665 7.5802C10.7487 8.13503 10.654 8.70168 10.3956 9.19954C10.1373 9.69741 9.72856 10.1011 9.22755 10.3533C8.72653 10.6055 8.15876 10.6933 7.60499 10.6042C7.05121 10.515 6.53964 10.2536 6.14302 9.85698C5.74641 9.46036 5.48495 8.94878 5.39584 8.39501C5.30673 7.84124 5.3945 7.27346 5.64668 6.77245C5.89885 6.27144 6.30259 5.86269 6.80045 5.60436C7.29832 5.34603 7.86496 5.25126 8.41979 5.33353C8.98574 5.41746 9.5097 5.68118 9.91426 6.08574C10.3188 6.4903 10.5825 7.01425 10.6665 7.5802Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M11.6667 4.33301H11.6734" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_14152_988">
+                          <rect width="16" height="16" fill="currentColor"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></a>
+                  <a href="https://www.linkedin.com/" target="_blank" class="footer-social-link w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="social-icon">
+                      <path d="M10.6666 5.33301C11.7275 5.33301 12.7449 5.75444 13.4951 6.50458C14.2452 7.25473 14.6666 8.27214 14.6666 9.33301V13.9997H12V9.33301C12 8.97939 11.8595 8.64025 11.6094 8.3902C11.3594 8.14015 11.0202 7.99967 10.6666 7.99967C10.313 7.99967 9.97387 8.14015 9.72382 8.3902C9.47377 8.64025 9.33329 8.97939 9.33329 9.33301V13.9997H6.66663V9.33301C6.66663 8.27214 7.08805 7.25473 7.8382 6.50458C8.58834 5.75444 9.60576 5.33301 10.6666 5.33301Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M4.00004 6H1.33337V14H4.00004V6Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M2.66671 3.99967C3.40309 3.99967 4.00004 3.40272 4.00004 2.66634C4.00004 1.92996 3.40309 1.33301 2.66671 1.33301C1.93033 1.33301 1.33337 1.92996 1.33337 2.66634C1.33337 3.40272 1.93033 3.99967 2.66671 3.99967Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="footer-right">
+                <div class="footer-menu">
+                  <div class="footer-menu-text">Services</div>
+                  <div class="footer-link-wrap">
+                    <DynList count={services.length} listClass="service-collection-footer">
+                        {services.map((service) => (
+                          <div role="listitem" class="w-dyn-item">
+                            <a href={serviceUrl(service.slug)} aria-current={isCurrent(serviceUrl(service.slug)) ? 'page' : undefined} class={withCurrent('footer-link w-inline-block', serviceUrl(service.slug))}>
+                              <div class="footer-link-text is-one">{service.title}</div>
+                              <div class="footer-link-text is-two">{service.title}</div>
+                            </a>
+                          </div>
+                        ))}
+                      </DynList>
+                  </div>
+                </div>
+                <div class="footer-menu">
+                  <div class="footer-menu-text">Company</div>
+                  <div class="footer-link-wrap">
+                    <a href="/" aria-current={isCurrent("/") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/")}>
+                      <div class="footer-link-text is-one">Home</div>
+                      <div class="footer-link-text is-two">Home</div>
+                    </a>
+                    <a href="/about-us" aria-current={isCurrent("/about-us") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/about-us")}>
+                      <div class="footer-link-text is-one">About Us</div>
+                      <div class="footer-link-text is-two">About Us</div>
+                    </a>
+                    <a href="/service" aria-current={isCurrent("/service") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/service")}>
+                      <div class="footer-link-text is-one">Services</div>
+                      <div class="footer-link-text is-two">Services</div>
+                    </a>
+                    <a href="/pricing" aria-current={isCurrent("/pricing") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/pricing")}>
+                      <div class="footer-link-text is-one">Pricing</div>
+                      <div class="footer-link-text is-two">Pricing</div>
+                    </a>
+                    <a href="/blog" aria-current={isCurrent("/blog") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/blog")}>
+                      <div class="footer-link-text is-one">Blog</div>
+                      <div class="footer-link-text is-two">Blog</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="footer-menu">
+                  <div class="footer-menu-text">Resources</div>
+                  <div class="footer-link-wrap">
+                    <a href={serviceDetailsHref} class="footer-link w-inline-block">
+                      <div class="footer-link-text is-one">Service Details</div>
+                      <div class="footer-link-text is-two">Service Details</div>
+                    </a>
+                    <a href={blogDetailsHref} class="footer-link w-inline-block">
+                      <div class="footer-link-text is-one">Blog Details</div>
+                      <div class="footer-link-text is-two">Blog Details</div>
+                    </a>
+                    <a href="/faq" aria-current={isCurrent("/faq") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/faq")}>
+                      <div class="footer-link-text is-one">FAQ</div>
+                      <div class="footer-link-text is-two">FAQ</div>
+                    </a>
+                    <a href="/book-a-service" aria-current={isCurrent("/book-a-service") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/book-a-service")}>
+                      <div class="footer-link-text is-one">Book a Service</div>
+                      <div class="footer-link-text is-two">Book a Service</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="footer-menu">
+                  <div class="footer-menu-text">Utility Pages</div>
+                  <div class="footer-link-wrap">
+                    <a href="/style-guide" aria-current={isCurrent("/style-guide") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/style-guide")}>
+                      <div class="footer-link-text is-one">Style Guide</div>
+                      <div class="footer-link-text is-two">Style Guide</div>
+                    </a>
+                    <a href="/404" aria-current={isCurrent("/404") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/404")}>
+                      <div class="footer-link-text is-one">404</div>
+                      <div class="footer-link-text is-two">404</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <div class="font-regular tertiary">© 2026 LawnPro Lawn &amp; Pest. All rights reserved.</div>
+              <div class="footer-bottom-right">
+                <a href="/privacy-policy" aria-current={isCurrent("/privacy-policy") ? 'page' : undefined} class={withCurrent("footer-link w-inline-block", "/privacy-policy")}>
+                  <div class="footer-link-text is-one">Privacy Policy</div>
+                  <div class="footer-link-text is-two">Privacy Policy</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>

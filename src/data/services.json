@@ -1,0 +1,284 @@
+[
+  {
+    "title": "Lawn Treatments",
+    "slug": "lawn-treatments",
+    "order": 1,
+    "image": "/images/cms/df0c188c30274ab5907d7f6af0464043443b037e.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Soil testing & a custom plan",
+      "Granular + liquid feeding",
+      "Broadleaf weed control"
+    ],
+    "price": "From $59",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  },
+  {
+    "title": "Mowing & Edging",
+    "slug": "mowing-edging",
+    "order": 2,
+    "image": "/images/cms/frame-21-12.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Soil testing & a custom plan",
+      "Granular + liquid feeding",
+      "Broadleaf weed control"
+    ],
+    "price": "From $59",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  },
+  {
+    "title": "Pest Control",
+    "slug": "pest-control",
+    "order": 3,
+    "image": "/images/cms/frame-21-10.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Comprehensive pest inspection",
+      "Safe & eco-friendly treatments",
+      "Seasonal prevention plans"
+    ],
+    "price": "From $59",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  },
+  {
+    "title": "Mosquito & Tick",
+    "slug": "mosquito-tick",
+    "order": 4,
+    "image": "/images/cms/frame-21-13.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Mosquito population control",
+      "Tick barrier protection",
+      "Family & pet-safe solutions"
+    ],
+    "price": "From $69",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  },
+  {
+    "title": "Mulch & Beds",
+    "slug": "mulch-beds",
+    "order": 5,
+    "image": "/images/cms/frame-21-15.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Premium mulch installation",
+      "Fresh garden bed edging",
+      "Weed suppression & moisture retention"
+    ],
+    "price": "From $79",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  },
+  {
+    "title": "Aeration & Seeding",
+    "slug": "aeration-seeding",
+    "order": 6,
+    "image": "/images/cms/frame-21-18.webp",
+    "cardSummary": "Tailored fertilization, weed management, and soil health programs designed to keep your turf lush, thick, and vibrantly green all season long.",
+    "badge": "LAWN HEALTH PROGRAM",
+    "detailsSummary": "A season-long program of soil-balanced fertilization, weed control, and targeted care that turns thin, patchy turf into a lawn the whole street notices.",
+    "keyPoints": [
+      "Core lawn aeration",
+      "Premium overseeding",
+      "Stronger root development"
+    ],
+    "price": "From $59",
+    "scopeCards": [
+      {
+        "icon": "/images/cms/innovation-icon-container-7.webp",
+        "title": "Soil & pH assessment",
+        "description": "We test before we treat, so every application matches your lawn's real needs."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-8.webp",
+        "title": "Custom fertilization plan",
+        "description": "A season-long feeding schedule tuned to your grass type and climate."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-9.webp",
+        "title": "Slow-release feeding",
+        "description": "Granular and liquid nutrients that green up fast and last for weeks."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-10.webp",
+        "title": "Targeted weed control",
+        "description": "Broadleaf and crabgrass control that protects your turf, not just hits it."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-11.webp",
+        "title": "Grub & insect prevention",
+        "description": "Proactive protection against the pests that quietly destroy roots."
+      },
+      {
+        "icon": "/images/cms/innovation-icon-container-12.webp",
+        "title": "Free re-treatments",
+        "description": "Not seeing results between visits? We come back at no extra charge."
+      }
+    ]
+  }
+]

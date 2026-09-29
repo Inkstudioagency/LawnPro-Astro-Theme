@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedPostList from '../components/cms/FeaturedPostList.astro';
+import PostList from '../components/cms/PostList.astro';
+import { getPosts } from '../lib/content';
+const posts = await getPosts();
+const featured = posts.filter((post) => post.featured);
+const regular = posts.filter((post) => !post.featured);
+---
+
+<BaseLayout title="Blog || Lawn Care & Pest Control Astro Theme" description="Read practical lawn care, pest control, seasonal maintenance, and eco-friendly yard guides designed to help homeowners create healthier outdoor spaces." wfPage="6aba295c0e791c71047d0eed" footerTarget="5b39091f-13ca-e616-cfeb-161ac997b54a">
+    <div class="main">
+      <div class="blog-hero-area">
+        <section class="section blog-hero">
+          <div class="section-gap spacer-7xl">
+            <div class="w-layout-blockcontainer container w-container">
+              <div class="inner-hero-header">
+                <div class="hero-badge">
+                  <div class="badge-dot"></div>
+                  <div class="badge-text">BLOG &amp; GUIDES</div>
+                </div>
+                <div class="max-width-40">
+                  <h1 class="inner-heading">Lawn &amp; home care, made simple</h1>
+                </div>
+                <div class="pricing-hero-p-wrap max-width-34">
+                  <p class="hero-summary center">Practical tips, seasonal checklists, and the science behind a healthier yard from the Evergreen team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="section">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="post-header">
+              <div class="post-header-title">Featured Post</div>
+            </div>
+            <div class="w-layout-grid post-grid">
+              <div class="post-colletion-block">
+                <FeaturedPostList posts={featured.slice(0, 1)} />
+              </div>
+              <div class="post-colletion-block">
+                <FeaturedPostList posts={featured.slice(1, 2)} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section bg-desert-storm">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="section-header">
+              <div class="max-width-40">
+                <h2 class="section-heading align-center">Expert Advice for Healthier Outdoor Living</h2>
+              </div>
+            </div>
+            <div class="blog-collection-wrap">
+              <PostList posts={regular} wrapImage />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-wf-component-id="f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf" data-wf-variant-state="base" class="section">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="faq-main">
+              <div class="faq-left">
+                <div class="faq-left-sticky">
+                  <div class="badge">
+                    <div class="badge-dot"></div>
+                    <div class="badge-text">FAQ</div>
+                  </div>
+                  <div class="faq-heading-wrap">
+                    <h2 data-wf-target="[[[&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf&quot;,&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5c9&quot;],[&quot;90076a7d-4554-655a-050c-00d3fdfcb483&quot;]]]">Frequently Asked Questions</h2>
+                  </div>
+                  <div class="faq-p-wrap">
+                    <p data-wf-target="[[[&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5bf&quot;,&quot;f3f2dd4d-0c79-308c-aa65-342cd8c6c5cc&quot;],[&quot;90076a7d-4554-655a-050c-00d3fdfcb483&quot;]]]">Find quick answers to common questions about our lawn care, pest control, scheduling, and service process.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="faq-right">
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">How quickly can I schedule my first service?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">Are your treatments safe for children and pets?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">Do I need a long-term contract?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">What services do you provide?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+                <div class="faq-card">
+                  <div class="faq-card-top">
+                    <div class="font-normal">How can I request a free quote?</div>
+                    <div class="faq-arrow-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow">
+                        <g clip-path="url(#clip0_14032_784)">
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_784">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="faq-arrow is-absolute">
+                        <g clip-path="url(#clip0_14032_793)">
+                          <path d="M8 3.3335V12.6668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_14032_793">
+                            <rect width="16" height="16" fill="currentColor"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="faq-p-wrapper">
+                    <p class="faq-p">In most cases, we can schedule your first visit within 2–5 business days. Availability may vary depending on your location and the season, but we&#x27;ll always work to find the earliest convenient appointment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</BaseLayout>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/cms/PostList.astro';
+import { formatDate, getPosts, type Post } from '../../lib/content';
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post, related: posts.filter((other) => other.slug !== post.slug).slice(0, 3) },
+  }));
+}
+
+const { post, related } = Astro.props as { post: Post; related: Post[] };
+---
+
+<BaseLayout title={post.title} description={post.summary} image={post.image} wfPage="6aba295c0e791c71047d0eef" footerTarget="1d3ea69e-8c41-cbd0-778d-4ab912500522">
+    <div class="main">
+      <section class="section bg-fantasy">
+        <div class="section-gap blog-single">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="single-post-header">
+              <div class="post-header-left">
+                <div class="badge">
+                  <div class="badge-dot"></div>
+                  <div class="badge-text">{post.category}</div>
+                </div>
+                <h1 class="post-heading">{post.title}</h1>
+              </div>
+              <div class="post-header-right">
+                <div class="badge-text">{post.readTime}</div>
+                <div class="badge-text">{formatDate(post.date)}</div>
+              </div>
+            </div>
+          </div>
+          <div class="post-image-wrap"><img src={post.image} loading="lazy" alt="" class="post-main-img"></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="post-body-wrap">
+              <p class="post-description">{post.detailsSummary}</p>
+              <div class="post-body-content w-richtext" set:html={post.body}></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section bg-desert-storm">
+        <div class="section-gap">
+          <div class="w-layout-blockcontainer container w-container">
+            <div class="related-post-header">
+              <div data-wf-target="[[[&quot;6aba295c0e791c71047d0eef&quot;,&quot;ae233d2e-9fa7-b71d-e62e-ede23853ed6b&quot;],[]]]" class="releted-post-title">Similar Article</div>
+              <div class="post-button-wrap">
+                <a data-wf--primary-button--variant="base" data-wf-component-id="fe1f102b-9d85-5da5-5b1c-595a29c97112" data-wf-variant-state="base" href="/blog" class="primary-button w-inline-block">
+                  <div href="#" class="button-text-wrap">
+                    <div class="footer-link-text is-one">View All Article</div>
+                    <div class="footer-link-text is-two">View All Article</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="blog-collection-wrap">
+              <PostList posts={related} />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</BaseLayout>
