@@ -81,7 +81,10 @@ Because the site is static, set up a Strapi webhook (Settings → Webhooks) that
 
 Scroll and page animations are Webflow Interactions (GSAP), driven by `public/js/webflow.js` and configured per page through the `wfPage` id each page passes to `BaseLayout`. Keep a page's `wfPage` value when you copy or rename it, or its animations will not run.
 
-`public/js/webflow.js` includes one small patch, marked `LawnPro:`. Webflow's static export bundles every page's interactions into this single file, and without the patch an interaction meant for one page also runs on the others, leaving FAQ cards, badges and blog cards frozen half-faded. The patch registers only the interactions scoped to the current page, which is what Webflow hosting does.
+`public/js/webflow.js` is the Webflow runtime with two changes, so keep them if you ever replace the file:
+
+- **Page-scoped interactions** (marked `LawnPro:`). Webflow's static export bundles every page's interactions into this single file, and without the patch an interaction meant for one page also runs on the others, leaving FAQ cards, badges and blog cards frozen half-faded. The patch registers only the interactions scoped to the current page, which is what Webflow hosting does.
+- **Neutral names.** The runtime's global is `window.SiteRuntime` (not `window.Webflow`) and it reads the page and site ids from `data-page-id` and `data-site-id` on `<html>`, so the site isn't reported as a Webflow build.
 
 ## Forms
 
